@@ -5,22 +5,26 @@ import './App.css';
 function App() {
   
   const [text, setText] = useState(`
-# Heading
+# Markdown Previewer
 
-## Subheading
+## Let me show you how it works
 
-[Press to see my Github](https://github.com/Milda100)
+This is a link: [Press to see my Github](https://github.com/Milda100)
 
-**Bold text**
+We can make text **Bold**
 
 Inline code: \`const x = 42;\`
+or
+\'<div>COOL</div>\'
 
+Block code:
 \`\`\`
 function example() {
   console.log("This is a code block!");
 }
 \`\`\`
 
+We can make lists:
 - Coffee
 - Tea
 - Milk
@@ -41,7 +45,7 @@ marked.setOptions({
       <div className="container mt-4">
       <div className="row">
         {/* Editor Section */}
-        <div className="col-md-6">
+        <div className="col-12 col-md-6" id="editor-container" >
           <label htmlFor="editor" className="form-label fw-bold">Editor</label>
           <textarea
             className="form-control"
@@ -53,10 +57,10 @@ marked.setOptions({
           />
         </div>
         {/* Preview Section */}
-        <div className="col-md-6">
+        <div className="col-12 col-md-6" id="preview-container">
           <label htmlFor="preview" className="form-label fw-bold">Previewer</label>
           <div
-            className="border p-3 bg-light"
+            className="border p-3"
             id="preview"
             dangerouslySetInnerHTML={{ __html: marked(text) }}
           />
