@@ -18,6 +18,7 @@
 @mixin responsive-container {
   @media (max-width: 768px) {
     width: 100%;
+    height: auto;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
   }
@@ -46,6 +47,7 @@ body {
 #editor-container, #preview-container {
   @include make-container(45%, auto, 0.5rem 0.1rem, 0rem, $background3, 1rem);
   box-shadow: 5px 5px 10px 1px $lighter-shadow;
+  @include responsive-container;
 }
 
 #editor, #preview {
@@ -53,6 +55,7 @@ body {
   background-color: lighten-color($background3, 35%);
   @include responsive-container;
 }
+
 
 label {
   font-size: clamp(1.5rem, 4vw, 2rem);
