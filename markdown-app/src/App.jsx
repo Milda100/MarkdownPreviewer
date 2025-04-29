@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { marked } from 'marked';
 import './App.css';
+import SocialIcons from './Components/SocialIcons'
 
 function App() {
   
@@ -67,6 +68,10 @@ marked.setOptions({
         </div>
       </div>
     </div>
+    <footer className="text-center mt-4">
+      <p>Created by <b>Milda Satkute</b></p>
+      <SocialIcons />
+    </footer>
     </>
   )
 }
