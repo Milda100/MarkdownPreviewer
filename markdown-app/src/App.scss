@@ -1,24 +1,12 @@
-//variables
-$background1: #833AB4;
-$background2: #FD1D1D;
-$background3: #FCB045;
-$container-shadow: #e06666;
-$lighter-bg3: lighten-color($background3, 20%);
-
-
 //functions
 @function lighten-color($color, $amount) {
   @return lighten($color, $amount);
 }
 
-// $colors: (
-//   "primary": #f4cccc,  // Soft pink
-//   "accent": #e06666,   // Bold red
-//   "neutral": #c27ba0   // Deep mauve
-// );
-
-@mixin make-container($width: 100%, $padding: 2rem 1.5rem, $margin-bottom: 2rem, $container-bg: white, $border-radius: 1rem) {
+//mixins
+@mixin make-container($width: 100%, $height: auto, $padding: 2rem 1.5rem, $margin-bottom: 2rem, $container-bg: white, $border-radius: 1rem) {
   width: $width;
+  height: $height;
   padding: $padding;
   margin-right: auto;
   margin-left: auto;
@@ -27,8 +15,24 @@ $lighter-bg3: lighten-color($background3, 20%);
   border-radius: $border-radius;
 }
 
-//scss
+@mixin responsive-container {
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
 
+
+//variables
+$background1: #833AB4;
+$background2: #FD1D1D;
+$background3: #FCB045;
+$container-shadow: #e06666;
+$lighter-shadow: lighten-color($container-shadow, 20%);
+
+
+//scss
 body {
   font-family: 'Roboto', Arial, sans-serif;
   background: linear-gradient(90deg, $background1 0%, $background2 50%, $background3 100%);
@@ -40,25 +44,22 @@ body {
 }
 
 #editor-container, #preview-container {
-  @include make-container(45%, 0.5rem 0.1rem, 0rem, $background3, 1rem);
+  @include make-container(45%, auto, 0.5rem 0.1rem, 0rem, $background3, 1rem);
+  box-shadow: 5px 5px 10px 1px $lighter-shadow;
 }
 
 #editor, #preview {
-  width: 100%;
-  height: 95%;
-  background-color: #fff;
-  border-radius: 1rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  @include make-container(100%, 95%, 1rem, 1rem, #fff, 1rem);
+  background-color: lighten-color($background3, 35%);
+  @include responsive-container;
 }
 
-
 label {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   padding: 0.1rem 1rem;
 }
 
 #preview img {
-  width: 400px; /* Adjust width */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 100%;
+  height: auto;
 }
