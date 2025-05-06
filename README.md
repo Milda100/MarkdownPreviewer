@@ -20,7 +20,7 @@ A dynamic **Markdown Previewer** built with **React**, styled using **Bootstrap*
 To run this project locally, follow these steps:
 
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/MarkdownPreviewer.git
+git clone https://github.com/Milda100/MarkdownPreviewer.git
 
 # Navigate to the project directory
 cd markdow-app
@@ -36,4 +36,4 @@ npm install --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg
 npm run dev
 
 # Open in your browser
-http://localhost:5000
+http://localhost:3000
